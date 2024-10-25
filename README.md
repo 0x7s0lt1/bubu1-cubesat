@@ -27,3 +27,24 @@
     <td>D8</td>
   </tr>
 </table>
+
+
+## Pressure sensor x Nano WireMap
+<table>
+  <tr>
+    <td>VCC</td>
+    <td>VIN</td>
+  </tr>
+  <tr>
+    <td>OUT</td>
+    <td>D4</td>
+  </tr>
+  <tr>
+    <td>SCK</td>
+    <td>D3</td>
+  </tr>
+  <tr>
+    <td>GND</td>
+    <td>GND</td>
+  </tr>
+</table>
