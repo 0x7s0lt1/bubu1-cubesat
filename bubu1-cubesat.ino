@@ -1,15 +1,13 @@
-#include <Adafruit_GFX.h>    // Core graphics library
-#include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
+#include <Adafruit_GFX.h>  
+#include <Adafruit_ST7789.h> 
 #include "HX711.h"
 
-#include "bitmap/pooolse_map.h"
+#include "bitmap/pooolse.h"
 
-// ST7789 TFT module connections
 #define TFT_CS    10
 #define TFT_DC     8
 #define TFT_RST    9
 
-// Pressure sensor connections
 #define PS_OUT    4
 #define PS_SCK    3
 
@@ -19,22 +17,18 @@ Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
 int i = 0;
 
 const unsigned char* epd_bitmap_poolse_arrays[] = {
-    epd_bitmap_poolse
+    epd_bitmap_pooolse
 };
 
 void setup() {
 
   air_press.begin(PS_OUT,PS_SCK);
-  //air_press.set_scale(2280.f);  // this value is obtained by calibrating the scale with known weights; see the README for details
-  //air_press.set_scale(2280.f);
-  //air_press.tare();    
 
 	tft.init(240, 240, SPI_MODE2);
 
   tft.setRotation(2);
   tft.setTextWrap(false);
   tft.setTextColor(ST77XX_WHITE);
-
 
 }
 
@@ -46,17 +40,19 @@ void loop() {
 
     air_press.power_up();
 
-    float unit = air_press.get_value();  //parameter: 10 if average
+    float unit = air_press.get_value();
     tft.setTextSize(4);
     tft.setCursor(30, 80);
     tft.print(unit / 1000);
     tft.setCursor(30, 120);
     tft.setTextSize(3);
-    tft.print("Pressure");
+    tft.print("PRESSURE");
 
     air_press.power_down();
 
     i++;
+
+    delay(2500);
 
   }else{
 
@@ -105,10 +101,9 @@ void loop() {
 
     }
 
+    delay(5000);
 
   }
 
-
-  delay(5000);
 
 }
