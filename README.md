@@ -1,6 +1,6 @@
 # bubu1-cubesat
 
-## TFT x Nano WireMap
+## TFT x Nano
 <table>
   <tr>
     <td>GND</td>
@@ -29,7 +29,7 @@
 </table>
 
 
-## Pressure sensor x Nano WireMap
+## Pressure sensor x Nano
 <table>
   <tr>
     <td>VCC</td>
